@@ -30,7 +30,7 @@ import {SharedModule} from './shared/shared.module';
         HttpClientModule,
         HeaderModule,
         StoreModule.forFeature(fromApp.appFeatureKey, fromApp.reducer),
-        SharedModule
+        SharedModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

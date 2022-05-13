@@ -1,12 +1,15 @@
-.example-form {
+.create-form {
   display: flex;
   flex-direction: column;
 }
 
-.example-form > * {
+.create-form > * {
   width: 100%;
 }
 
-.close{
-  width: 100%;
+mat-form-field{
+  width: 400px;
+}
+mat-card-title{
+  text-align: center;
 }

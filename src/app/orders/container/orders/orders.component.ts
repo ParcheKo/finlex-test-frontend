@@ -17,11 +17,13 @@ import {Order} from '../../models/order';
 })
 export class OrdersComponent implements OnInit {
 
+  // @ViewChild('empTbSort') empTbSort = new MatSort();
+
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   orders$: Observable<Order[]>;
 
-  constructor(public dialog: MatDialog, private dataService: OrderService,
+  constructor(private dialog: MatDialog, private dataService: OrderService,
               private store: Store<fromStore.OrderState>) {
     this.store.dispatch(fromActions.requestLoadOrders());
     this.orders$ = this.store.select(fromSelector.orders);
@@ -32,7 +34,7 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['id', 'orderDate', 'createdBy', 'orderNo'];
+  displayedColumns = ['orderDate', 'createdBy', 'orderNo'];
   dataSource = new OrderDataSource(this.dataService);
 
   // deletePost(id: any) {
@@ -43,8 +45,21 @@ export class OrdersComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(OrderDialogComponent, {
       width: '600px',
-      data: 'Add Post'
+      data: {
+        // pass the data object for Edit scenarios for example
+      },
+      // closeOnNavigation:false
     });
+    dialogRef.afterClosed().subscribe(
+      // todo: dispatch register-order or request-register-order action here
+      data => {
+        if (!data) {
+          console.log('User pressed CANCEL.');
+        } else {
+          console.log('User press SAVE with form data:', data);
+        }
+      }
+    );
     // dialogRef.componentInstance.event.subscribe((result) => {
     //   this.dataService.registerOrder(result.data);
     //   this.dataSource = new OrderDataSource(this.dataService);

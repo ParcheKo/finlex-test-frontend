@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './order-dialog.component.html',
   styleUrls: ['./order-dialog.component.css']
 })
-export class OrderDialogComponent{
+export class OrderDialogComponent {
   // order = {
   //   // id: '',
   //   orderDate: '',
@@ -18,21 +18,21 @@ export class OrderDialogComponent{
   // };
   public event: EventEmitter<any> = new EventEmitter();
 
-  form : FormGroup ;
+  form: FormGroup;
   title = '';
 
   constructor(
     private fb: FormBuilder,
-    private  dialogRef: MatDialogRef<OrderDialogComponent>,
+    private dialogRef: MatDialogRef<OrderDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Order,
     public dataService: OrderService
   ) {
-    this.title = this.getTitle([data.personName, data.createdBy, data.orderNo].filter(p=>!!p)) || 'New Order';
+    this.title = this.getTitle([data.personName, data.createdBy, data.orderNo].filter(p => !!p)) || 'New Order';
     this.form = this.fb.group({
-      orderDate : ['', [Validators.required]],
+      orderDate: ['', [Validators.required]],
       createdBy: ['', [Validators.required, Validators.email]],
-      orderNo:['', [Validators.required]]
-    })
+      orderNo: ['', [Validators.required]]
+    });
   }
 
   onNoClick(): void {
@@ -40,7 +40,7 @@ export class OrderDialogComponent{
   }
 
   onSubmit(): void {
-    console.log(this.form.invalid)
+    console.log(this.form.invalid);
     // this.event.emit({data: this.order});
     this.dialogRef.close(this.form.valid ? this.form.value : null);
   }
@@ -49,7 +49,7 @@ export class OrderDialogComponent{
     return list.join(separator || ' - ');
   }
 
-  public hasError = (controlName: string, errorName: string) =>{
+  public hasError = (controlName: string, errorName: string) => {
     return this.form.controls[controlName].hasError(errorName);
-  }
+  };
 }

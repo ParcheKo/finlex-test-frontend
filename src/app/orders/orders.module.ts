@@ -13,13 +13,13 @@ import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [OrdersComponent, OrderDialogComponent],
-    imports: [
-        CommonModule,
-        OrdersRoutingModule,
-        SharedModule,
-        StoreModule.forFeature(fromOrder.ordersFeatureKey, fromOrder.reducer),
-        EffectsModule.forFeature([OrderEffects])
-    ]
+  imports: [
+    CommonModule,
+    OrdersRoutingModule,
+    SharedModule,
+    StoreModule.forFeature(fromOrder.ordersFeatureKey, fromOrder.reducer),
+    EffectsModule.forFeature([OrderEffects])
+  ]
 })
 export class OrdersModule {
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OrderDialogComponent } from './order-dialog.component';
+import {OrderDialogComponent} from './order-dialog.component';
 
 describe('OrderDialogComponent', () => {
   let component: OrderDialogComponent;
@@ -8,9 +8,9 @@ describe('OrderDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OrderDialogComponent ]
+      declarations: [OrderDialogComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,7 +4,7 @@ import {OrderService} from '../../service/order.service';
 import {OrderDialogComponent} from '../../order-dialog/order-dialog.component';
 import {OrderDataSource} from './order.dataSource';
 import * as fromActions from '../../../orders/store/order.actions';
-import * as fromSelector from '../../../orders/store/orders.selectors';
+import * as fromSelector from '../../store/order.selectors';
 import * as fromStore from '../../store/order.reducer';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';

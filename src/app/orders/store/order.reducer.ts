@@ -1,7 +1,7 @@
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { createReducer, on } from '@ngrx/store';
+import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
+import {createReducer, on} from '@ngrx/store';
 
-import { Order } from '../models/order';
+import {Order} from '../models/order';
 import * as OrderActions from './order.actions';
 
 export const ordersFeatureKey = 'orders';
@@ -31,15 +31,15 @@ export const reducer = createReducer(
   ),
   on(OrderActions.loadOrders,
     (state, action) => adapter.setAll(action.orders, {
-        ...state,
-        isLoading: false
+      ...state,
+      isLoading: false
     })
   ),
   on(OrderActions.requestLoadOrders,
     (state, action) => adapter.setAll([], {
       ...state,
       isLoading: true
-  })
+    })
   )
 );
 

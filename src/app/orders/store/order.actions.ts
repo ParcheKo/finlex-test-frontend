@@ -1,7 +1,7 @@
-import { Update } from '@ngrx/entity';
-import { createAction, props } from '@ngrx/store';
+import {Update} from '@ngrx/entity';
+import {createAction, props} from '@ngrx/store';
 
-import { Order } from '../models/order';
+import {Order} from '../models/order';
 
 export const requestLoadOrders = createAction(
   '[Order/API] Request Load Orders'

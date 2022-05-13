@@ -34,7 +34,7 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['orderDate', 'createdBy', 'orderNo'];
+  displayedColumns = ['orderDate', 'createdBy', 'orderNo', 'productName', 'total', 'price', 'totalPrice', 'personName'];
   dataSource = new OrderDataSource(this.dataService);
 
   // deletePost(id: any) {

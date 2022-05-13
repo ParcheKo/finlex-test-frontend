@@ -19,6 +19,18 @@
       <input matInput placeholder="Order No." type="text" name="orderNo" formControlName="orderNo">
       <mat-error *ngIf="hasError('orderNo', 'required')">Order No. is required</mat-error>
     </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Product Name" type="text" name="productName" formControlName="productName">
+      <mat-error *ngIf="hasError('productName', 'required')">Product Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Total" type="text" name="total" formControlName="total">
+      <mat-error *ngIf="hasError('total', 'required')">Quantity is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" type="text" name="price" formControlName="price">
+      <mat-error *ngIf="hasError('price', 'required')">Price is required</mat-error>
+    </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>

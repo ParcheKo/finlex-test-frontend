@@ -32,8 +32,28 @@
                   <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="orderNo">
-                  <mat-header-cell *matHeaderCellDef> Order No</mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef> Order No.</mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element.orderNo}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="productName">
+                  <mat-header-cell *matHeaderCellDef> Product Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="total">
+                  <mat-header-cell *matHeaderCellDef> Total</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                  <mat-header-cell *matHeaderCellDef> Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalPrice">
+                  <mat-header-cell *matHeaderCellDef> Total Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.totalPrice}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="personName">
+                  <mat-header-cell *matHeaderCellDef> Person Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.personName}} </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"
                                 class="tableHeaderCellDiv"></mat-header-row>

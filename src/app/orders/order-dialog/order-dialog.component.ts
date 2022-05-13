@@ -31,7 +31,10 @@ export class OrderDialogComponent {
     this.form = this.fb.group({
       orderDate: ['', [Validators.required]],
       createdBy: ['', [Validators.required, Validators.email]],
-      orderNo: ['', [Validators.required]]
+      orderNo: ['', [Validators.required, Validators.maxLength(50)]],
+      productName: ['', [Validators.required, Validators.maxLength(100)]],
+      total: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      price: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     });
   }
 

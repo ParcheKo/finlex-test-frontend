@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <form class="create-form" [formGroup]="form" fxLayout="column wrap" novalidate>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput placeholder="Order Date" type="text" [matDatepicker]="picker"
+             name="orderDate" formControlName="orderDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-error *ngIf="hasError('orderDate', 'required')">Order Date is required</mat-error>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" name="createdBy" formControlName="createdBy">
+      <mat-error *ngIf="hasError('createdBy', 'required')">Email is required</mat-error>
+      <mat-error *ngIf="hasError('createdBy', 'email')">Email is not in correct format</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Order No." type="text" name="orderNo" formControlName="orderNo">
+      <mat-error *ngIf="hasError('orderNo', 'required')">Order No. is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Product Name" type="text" name="productName" formControlName="productName">
+      <mat-error *ngIf="hasError('productName', 'required')">Product Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Total" type="text" name="total" formControlName="total">
+      <mat-error *ngIf="hasError('total', 'required')">Quantity is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" type="text" name="price" formControlName="price">
+      <mat-error *ngIf="hasError('price', 'required')">Price is required</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" color="success"
+          (click)="onSubmit()" [disabled]="form.invalid">Register
+  </button>
+  <button class="mat-raised-button"
+          (click)="onNoClick()">Cancel
+  </button>
+</div>

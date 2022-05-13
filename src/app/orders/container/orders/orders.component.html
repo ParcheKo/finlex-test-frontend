@@ -1,1 +1,68 @@
-<p>orders works!</p>
+<mat-spinner *ngIf="isLoading$ | async; else orderList" style="margin:0 auto;"></mat-spinner>
+<ng-template #orderList>
+  <br>
+  <div class="container">
+    <div class="container">
+      <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center"
+           class="content">
+        <div class="blocks">
+          <button type="submit" mat-raised-button color="primary" (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+            New Order
+          </button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card">
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Orders</h3>
+          </mat-card-title>
+          <mat-card-content>
+            <div class="example-container mat-elevation-z8">
+              <mat-table #table [dataSource]="dataSource">
+                <ng-container matColumnDef="orderDate">
+                  <mat-header-cell *matHeaderCellDef> Order Date</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.orderDate | date: 'd/M/y'}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="createdBy">
+                  <mat-header-cell *matHeaderCellDef> Created By</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.createdBy}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="orderNo">
+                  <mat-header-cell *matHeaderCellDef> Order No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.orderNo}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="productName">
+                  <mat-header-cell *matHeaderCellDef> Product Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.productName}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="total">
+                  <mat-header-cell *matHeaderCellDef> Total</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.total}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                  <mat-header-cell *matHeaderCellDef> Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalPrice">
+                  <mat-header-cell *matHeaderCellDef> Total Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.totalPrice}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="personName">
+                  <mat-header-cell *matHeaderCellDef> Person Name</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.personName}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"
+                                class="tableHeaderCellDiv"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-template>

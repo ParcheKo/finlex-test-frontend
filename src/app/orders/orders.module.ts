@@ -3,13 +3,15 @@ import {CommonModule} from '@angular/common';
 
 import {OrdersRoutingModule} from './orders-routing.module';
 import {OrdersComponent} from './container/orders/orders.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [OrdersComponent],
   imports: [
     CommonModule,
-    OrdersRoutingModule
+    OrdersRoutingModule,
+    SharedModule
   ]
 })
 export class OrdersModule { }

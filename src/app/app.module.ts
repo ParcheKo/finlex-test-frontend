@@ -14,6 +14,8 @@ import * as fromApp from './core/app.reducer';
 import { reducer } from './core/app.reducer';
 import { HeaderModule } from './header/header.module';
 import {SharedModule} from './shared/shared.module';
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,10 @@ import {SharedModule} from './shared/shared.module';
         HttpClientModule,
         HeaderModule,
         StoreModule.forFeature(fromApp.appFeatureKey, fromApp.reducer),
-        SharedModule
+        SharedModule,
+        StoreModule.forRoot({}, {}),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+        EntityDataModule.forRoot(entityConfig)
     ],
   providers: [],
   bootstrap: [AppComponent]

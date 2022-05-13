@@ -27,7 +27,7 @@ export class PersonsComponent implements OnInit {
     this.isLoading$ = this.store.select(fromSelector.isLoading);
     this.error$ = this.store.select(fromSelector.error);
     this.store.select(state => state).subscribe(data => {
-      console.log('data', data);
+      console.log('persons', data);
     });
   }
 

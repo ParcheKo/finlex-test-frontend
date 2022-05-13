@@ -1,11 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable, of, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable, of, Subject} from 'rxjs';
+import {debounceTime, distinctUntilChanged, map, takeUntil} from 'rxjs/operators';
 
 import * as fromStore from '../store/header.reducer';
 import * as fromSelector from '../store/header.selectors';
-import { searchProduct, requestLoadProducts } from './../../products/store/product.actions';
+import {searchProduct} from '../../products/store/product.actions';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
         takeUntil(this.destroySub)
       )
-      .subscribe(query => this.store.dispatch(searchProduct({ searchQuery: query })));
+      .subscribe(query => this.store.dispatch(searchProduct({searchQuery: query})));
   }
 
   ngOnDestroy(): void {

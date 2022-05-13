@@ -8,7 +8,7 @@ import * as fromSelector from '../../store/order.selectors';
 import * as fromStore from '../../store/order.reducer';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {Order} from '../../models/order';
+import {Order, OrderViewModel, RegisterOrderRequest} from '../../models/order';
 
 @Component({
   selector: 'app-orders',
@@ -30,7 +30,7 @@ export class OrdersComponent implements OnInit {
     this.isLoading$ = this.store.select(fromSelector.isLoading);
     this.error$ = this.store.select(fromSelector.error);
     this.store.select(state => state).subscribe(data => {
-      console.log('data', data);
+      console.log('orders', data);
     });
   }
 
@@ -47,16 +47,18 @@ export class OrdersComponent implements OnInit {
       width: '600px',
       data: {
         // pass the data object for Edit scenarios for example
-      },
+      } as OrderViewModel,
       // closeOnNavigation:false
     });
     dialogRef.afterClosed().subscribe(
       // todo: dispatch register-order or request-register-order action here
-      data => {
+      (data: Order) => {
         if (!data) {
           console.log('User pressed CANCEL.');
         } else {
-          console.log('User press SAVE with form data:', data);
+          console.log('User pressed SAVE with form data:', data);
+          this.store.dispatch(fromActions.registerOrder({order: toRegisterOrderRequest(data)}));
+          console.log('Register Order Dispatched.');
         }
       }
     );
@@ -69,4 +71,34 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
   }
 }
+
+export const toOrder = (registerOrderRequest: RegisterOrderRequest): Order => {
+  return {
+    orderNo: registerOrderRequest.orderNo,
+    orderDate: registerOrderRequest.orderDate,
+    createdBy: registerOrderRequest.personEmail,
+    productName: registerOrderRequest.productName,
+    price: registerOrderRequest.price,
+    total: registerOrderRequest.total,
+    id: '', // it is not available yet, to be fetched from read model, maybe a few seconds later ?
+    totalPrice: 0, // it is not available yet, to be fetched from read model, maybe a few seconds later ?
+    // todo ??
+    // personName: '' // it is not available yet, to be fetched from read model, maybe a few seconds later ?
+  };
+};
+
+export const toRegisterOrderRequest = (order: Order): RegisterOrderRequest => {
+  return {
+    orderDate: order.orderDate,
+    personEmail: order.createdBy,
+    orderNo: order.orderNo,
+    productName: order.productName,
+    total: order.total,
+    price: order.price,
+    // id: '', // ??
+    // totalPrice: 0, // ??
+    // todo ??
+    // personName: '' // ??
+  };
+};
 

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject} from '@angular/core';
 import {OrderService} from '../service/order.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Order} from '../models/order';
+import {Order, OrderViewModel} from '../models/order';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -24,7 +24,7 @@ export class OrderDialogComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<OrderDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Order,
+    @Inject(MAT_DIALOG_DATA) public data: OrderViewModel,
     public dataService: OrderService
   ) {
     this.title = this.getTitle([data.personName, data.createdBy, data.orderNo].filter(p => !!p)) || 'New Order';

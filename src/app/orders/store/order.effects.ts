@@ -3,7 +3,8 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {delay, map, switchMap} from 'rxjs/operators';
 
 import {OrderService} from '../service/order.service';
-import {loadOrders, requestLoadOrders, searchOrder} from './order.actions';
+import {loadOrders, registerOrder, requestLoadOrders, searchOrder} from './order.actions';
+import {pipe} from 'rxjs';
 
 @Injectable()
 export class OrderEffects {
@@ -11,7 +12,7 @@ export class OrderEffects {
   constructor(private actions$: Actions, private service: OrderService) {
   }
 
-  loadOrders$ = createEffect(() =>
+  requestLoadOrders$ = createEffect(() =>
     this.actions$.pipe(
       ofType(requestLoadOrders),
       switchMap(action =>
@@ -22,13 +23,26 @@ export class OrderEffects {
     )
   );
 
-  searchOrder$ = createEffect(() =>
+  // todo: implement searching for an order by email
+  searchOrders$ = createEffect(() =>
     this.actions$.pipe(
       ofType(searchOrder),
       switchMap(action => this.service.search(action.searchQuery)
         .pipe(
           delay(1000),
           map(data => loadOrders({orders: data}))
+        ))
+    )
+  );
+
+  registerOrder$ = createEffect(() =>
+    // todo
+    this.actions$.pipe(
+      ofType(registerOrder),
+      // todo: ?? how is action of type Order?!
+      switchMap(action => this.service.register(action.order)
+        .pipe(
+          map(data => requestLoadOrders())
         ))
     )
   );

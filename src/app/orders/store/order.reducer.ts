@@ -1,8 +1,9 @@
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 import {createReducer, on} from '@ngrx/store';
 
-import {Order} from '../models/order';
+import {Order, OrderViewModel, RegisterOrderRequest} from '../models/order';
 import * as OrderActions from './order.actions';
+import {toOrder} from '../container/orders/orders.component';
 
 export const ordersFeatureKey = 'orders';
 
@@ -20,8 +21,8 @@ export const initialState: OrderState = adapter.getInitialState({
 
 export const reducer = createReducer(
   initialState,
-  on(OrderActions.addOrder,
-    (state, action) => adapter.addOne(action.order, state)
+  on(OrderActions.registerOrder,
+    (state, action) => adapter.addOne(toOrder(action.order), state)
   ),
   on(OrderActions.updateOrder,
     (state, action) => adapter.updateOne(action.order, state)

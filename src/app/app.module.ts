@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import * as fromApp from './core/app.reducer';
 import { reducer } from './core/app.reducer';
-import { HeaderModule } from './header/header.module';
 import {SharedModule} from './shared/shared.module';
 
 @NgModule({
@@ -28,7 +27,6 @@ import {SharedModule} from './shared/shared.module';
         StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
         BrowserAnimationsModule,
         HttpClientModule,
-        HeaderModule,
         StoreModule.forFeature(fromApp.appFeatureKey, fromApp.reducer),
         SharedModule,
     ],

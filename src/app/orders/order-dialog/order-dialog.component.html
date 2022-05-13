@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>{{data}}</h1>
+<div mat-dialog-content>
+  <form class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput placeholder="Order Date" type="text" required
+             [matDatepicker]="picker" [(ngModel)]="order.orderDate" name="orderDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Person Email" required [(ngModel)]="order.createdBy" name="createdBy" >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Order No." type="text" required [(ngModel)]="order.orderNo" name="orderNo">
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>

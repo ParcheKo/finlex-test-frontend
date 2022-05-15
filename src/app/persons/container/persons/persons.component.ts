@@ -31,7 +31,7 @@ export class PersonsComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['name', 'email'];
+  displayedColumns = ['name', 'email', 'orderCount', 'totalShopping', 'highestOrderTotalPrice', 'firstShoppingDate', 'lastShoppingDate'];
   dataSource = new PersonDataSource(this.dataService);
 
   // deletePost(id: any) {

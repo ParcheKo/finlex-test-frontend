@@ -19,6 +19,26 @@
                   <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
                   <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
                 </ng-container>
+                <ng-container matColumnDef="orderCount">
+                  <mat-header-cell *matHeaderCellDef> Order Count</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.orderCount}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="totalShopping">
+                  <mat-header-cell *matHeaderCellDef> Total Shopping</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.totalShopping}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="highestOrderTotalPrice">
+                  <mat-header-cell *matHeaderCellDef> Highest Order Total Price</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.highestOrderTotalPrice}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="firstShoppingDate">
+                  <mat-header-cell *matHeaderCellDef> First Shopping Date</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.firstShoppingDate}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="lastShoppingDate">
+                  <mat-header-cell *matHeaderCellDef> Last Shopping Date</mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element.lastShoppingDate}} </mat-cell>
+                </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"
                                 class="tableHeaderCellDiv"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

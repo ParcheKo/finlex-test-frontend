@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {PersonService} from '../../../persons/service/person.service';
@@ -12,7 +12,8 @@ import {Person} from '../../models/peson';
 @Component({
   selector: 'app-persons',
   templateUrl: './persons.component.html',
-  styleUrls: ['./persons.component.scss']
+  styleUrls: ['./persons.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonsComponent implements OnInit {
 

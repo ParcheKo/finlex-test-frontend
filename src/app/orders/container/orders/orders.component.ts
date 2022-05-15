@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {OrderService} from '../../service/order.service';
 import {OrderDialogComponent} from '../../order-dialog/order-dialog.component';
@@ -13,7 +13,8 @@ import {Order, OrderViewModel, RegisterOrderRequest} from '../../models/order';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrdersComponent implements OnInit {
 

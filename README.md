@@ -76,6 +76,7 @@ Let's take it for a spin :-)
    ```shell
    npm start
    ```
+Application can be accessed on http://locahost:4200.
 
 ## Usage
 
@@ -85,7 +86,7 @@ We can create orders here with the button above.
 
 ### Persons Page
 
-We can view people which have at least one order.
+We can view people that already have registered an order.
 
 ## Contact
 

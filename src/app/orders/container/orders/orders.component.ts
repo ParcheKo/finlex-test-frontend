@@ -18,8 +18,6 @@ import {Order, OrderViewModel, RegisterOrderRequest} from '../../models/order';
 })
 export class OrdersComponent implements OnInit {
 
-  // @ViewChild('empTbSort') empTbSort = new MatSort();
-
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   orders$: Observable<Order[]>;
@@ -35,13 +33,8 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['orderDate', 'createdBy', 'orderNo', 'productName', 'total', 'price', 'totalPrice', 'personName'];
+  displayedColumns = ['orderDate', 'createdBy', 'orderNo', 'productName', 'total', 'price', 'totalPrice'];
   dataSource = new OrderDataSource(this.dataService);
-
-  // deletePost(id: any) {
-  //     this.dataService.deletePost(id);
-  //     this.dataSource = new PostDataSource(this.dataService);
-  // }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(OrderDialogComponent, {
@@ -52,7 +45,6 @@ export class OrdersComponent implements OnInit {
       // closeOnNavigation:false
     });
     dialogRef.afterClosed().subscribe(
-      // todo: dispatch register-order or request-register-order action here
       (data: Order) => {
         if (!data) {
           console.log('User pressed CANCEL.');
@@ -63,10 +55,6 @@ export class OrdersComponent implements OnInit {
         }
       }
     );
-    // dialogRef.componentInstance.event.subscribe((result) => {
-    //   this.dataService.registerOrder(result.data);
-    //   this.dataSource = new OrderDataSource(this.dataService);
-    // });
   }
 
   ngOnInit(): void {
@@ -84,7 +72,6 @@ export const toOrder = (registerOrderRequest: RegisterOrderRequest): Order => {
     id: '', // it is not available yet, to be fetched from read model, maybe a few seconds later ?
     totalPrice: 0, // it is not available yet, to be fetched from read model, maybe a few seconds later ?
     // todo ??
-    // personName: '' // it is not available yet, to be fetched from read model, maybe a few seconds later ?
   };
 };
 
@@ -99,7 +86,6 @@ export const toRegisterOrderRequest = (order: Order): RegisterOrderRequest => {
     // id: '', // ??
     // totalPrice: 0, // ??
     // todo ??
-    // personName: '' // ??
   };
 };
 

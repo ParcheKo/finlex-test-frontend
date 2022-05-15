@@ -23,7 +23,6 @@ export interface OrderViewModel {
   total: number;
   price: number;
   totalPrice: number;
-  personName: string;
 }
 
 export interface RegisterOrderRequest {

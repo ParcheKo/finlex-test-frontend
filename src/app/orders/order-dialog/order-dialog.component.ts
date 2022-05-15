@@ -27,7 +27,7 @@ export class OrderDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: OrderViewModel,
     public dataService: OrderService
   ) {
-    this.title = this.getTitle([data.personName, data.createdBy, data.orderNo].filter(p => !!p)) || 'New Order';
+    this.title = this.getTitle([data.createdBy, data.orderNo].filter(p => !!p)) || 'New Order';
     this.form = this.fb.group({
       orderDate: ['', [Validators.required]],
       createdBy: ['', [Validators.required, Validators.email]],

@@ -32,7 +32,7 @@ export class PersonsComponent implements OnInit {
     });
   }
 
-  displayedColumns = ['name', 'email', 'orderCount', 'totalShopping', 'highestOrderTotalPrice', 'firstShoppingDate', 'lastShoppingDate'];
+  displayedColumns = ['name', 'email'];
   dataSource = new PersonDataSource(this.dataService);
 
   // deletePost(id: any) {

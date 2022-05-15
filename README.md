@@ -76,7 +76,7 @@ Let's take it for a spin :-)
    ```shell
    npm start
    ```
-Application can be accessed on http://locahost:4200.
+Application can be accessed on http://localhost:4200.
 
 ## Usage
 

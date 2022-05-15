@@ -57,10 +57,10 @@ Let's take it for a spin :-)
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install @angular/cli@latest -g
-  ```
+* Node.js
+
+Download and install latest LTS version of Node.js runtime for you OS from
+[here](https://nodejs.org/en/download/).
 
 ### Setup
 

@@ -36,13 +36,6 @@ This is a sample project started for a simple task in a job interview process.
 
 It tries to demo a very simple POC sales application.
 
-#### Orders Page
-
-![product-screenshot](https://example.com)
-
-#### Persons Page
-
-![product-screenshot](https://example.com)
 
 ### Built With
 

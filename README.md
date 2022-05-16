@@ -81,6 +81,14 @@ We can create orders here with the button above.
 
 We can view people that already have registered an order.
 
+
+## Todo
+
+- [ ] Upgrade Angular to latest version.
+- [ ] Solve CSS problem of Table which shrinks columns.
+- [ ] Display backend errors as a nice and clear dialog.
+
+
 ## Contact
 
 Amir A. Rezaei P. - [@amir_parcheko](https://twitter.com/amir_parcheko) - amir.a.rezaei.p@gmail.com

@@ -87,7 +87,9 @@ We can view people that already have registered an order.
 - [ ] Upgrade Angular to latest version.
 - [ ] Solve CSS problem of table which shrinks columns.
 - [ ] Display backend errors as a nice and clear dialog.
-- [ ] Add pagination, sorting, and filtering to the tables. 
+- [ ] Add pagination, sorting, and filtering to the tables.
+- [ ] Add thousand-separator for money columns.
+- [ ] Add "No." columns for tables. 
 
 
 ## Contact

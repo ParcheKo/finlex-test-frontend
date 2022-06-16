@@ -85,7 +85,7 @@ We can view people that already have registered an order.
 ## Todo
 
 - [ ] Upgrade Angular to latest version.
-- [ ] Solve CSS problem of Table which shrinks columns.
+- [ ] Solve CSS problem of table which shrinks columns.
 - [ ] Display backend errors as a nice and clear dialog.
 - [ ] Add pagination, sorting, and filtering to the tables. 
 
